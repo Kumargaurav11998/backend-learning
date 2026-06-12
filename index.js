@@ -16,14 +16,15 @@
 //   console.log("Server started");
 // });
 import { health } from "./src/health.ts";
+import { getProduct } from "../backend-learning/src/products.ts";
 
 import express from "express";
 
 const app = express();
 
-app.get("/health", health);
+// app.get("/health", health);
 
-
+app.get("/products/:id",getProduct);
 app.listen(3000, () => {
   console.log("Server started");
 });
