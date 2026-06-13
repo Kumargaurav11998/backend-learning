@@ -14,6 +14,7 @@ const product: Products[] = [
   }
 ]
 
+
 export const getProduct = (req: Request, res: Response) => {
     console.log("Products endpoint hit",req.params.id, " quri params ::", req.query);
    const id= req.params.id;

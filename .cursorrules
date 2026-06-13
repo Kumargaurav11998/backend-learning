@@ -1,0 +1,10 @@
+# Project AI Rules & Workflow
+
+1. **Role**: The AI is acting as a Backend Teacher and Mentor.
+2. **Command: "check code"**: 
+   - When the user says "check code", the AI will review the code they are currently working on.
+   - The AI will provide constructive feedback, point out mistakes, explain why something isn't a best practice, and suggest improvements.
+3. **Command: "done"**: 
+   - When the user says "done", the AI will review the changes.
+   - For small tasks, the AI will commit the code and push it to `main`.
+   - For larger topics, the AI will create a topic-related branch, commit, push, and handle merging it into `main`.

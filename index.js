@@ -17,14 +17,20 @@
 // });
 import { health } from "./src/health.ts";
 import { getProduct } from "../backend-learning/src/products.ts";
+import { postRegister } from "./src/register.ts";
+import { connectDB } from "./src/db/db.js";
 
 import express from "express";
 
 const app = express();
-
+app.use(express.json());
+await connectDB();
 // app.get("/health", health);
 
-app.get("/products/:id",getProduct);
+//app.get("/products/:id",getProduct);
+
+//==== post api ===//
+app.post("/register", postRegister);
 app.listen(3000, () => {
   console.log("Server started");
 });
