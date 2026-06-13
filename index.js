@@ -17,7 +17,7 @@
 // });
 import { health } from "./src/health.ts";
 import { getProduct } from "../backend-learning/src/products.ts";
-import { postRegister } from "./src/register.ts";
+import { resgister } from "./src/register.ts";
 import { connectDB } from "./src/db/db.js";
 
 import express from "express";
@@ -30,7 +30,7 @@ await connectDB();
 //app.get("/products/:id",getProduct);
 
 //==== post api ===//
-app.post("/register", postRegister);
+app.post("/register", resgister);
 app.listen(3000, () => {
   console.log("Server started");
 });

@@ -4,7 +4,14 @@
 2. **Command: "check code"**: 
    - When the user says "check code", the AI will review the code they are currently working on.
    - The AI will provide constructive feedback, point out mistakes, explain why something isn't a best practice, and suggest improvements.
+   - **Deep Quality Check**: The AI must also rigorously check for coding standards, small errors, correct imports, and proper file structure. It will flag the creation of unnecessary instances/variables and identify any missing logic that could cause bugs or issues in the future.
 3. **Command: "done"**: 
    - When the user says "done", the AI will review the changes.
    - For small tasks, the AI will commit the code and push it to `main`.
    - For larger topics, the AI will create a topic-related branch, commit, push, and handle merging it into `main`.
+
+4. **Code Review & Token Saving**:
+   - Always check only uncommitted code (git diff) when asked to review or "check code", rather than reading the entire codebase, to save tokens and avoid unnecessary processing.
+
+5. **Strict Code Modification Rules**:
+   - DO NOT make any changes to the code unless explicitly instructed to do so (e.g., using keywords like "change code", "fix code", or providing a specific "code name" to update).
