@@ -17,11 +17,14 @@
 // });
 import { health } from "./src/health.ts";
 import { getProduct } from "../backend-learning/src/products.ts";
-import { resgister } from "./src/register.ts";
+//simport { resgister } from "./src/register.ts";
+import {getUser,register,login} from "./src/controller/user.ts";
 import { connectDB } from "./src/db/db.js";
 
 import express from "express";
-
+import user from "./src/modal/user.ts";
+import dotenv from "dotenv";
+dotenv.config();
 const app = express();
 app.use(express.json());
 await connectDB();
@@ -30,7 +33,9 @@ await connectDB();
 //app.get("/products/:id",getProduct);
 
 //==== post api ===//
-app.post("/register", resgister);
+app.post("/register", register);
+app.post('/login',login)
+app.post("/getuser",  getUser,)
 app.listen(3000, () => {
   console.log("Server started");
 });
