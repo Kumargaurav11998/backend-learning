@@ -1,7 +1,7 @@
 import type { Request, Response, NextFunction } from "express";
-import { ZodSchema, ZodError } from "zod";
+import {  ZodError, ZodObject ,flattenError  } from "zod";
 
-export const validate = (schema: ZodSchema) => {
+export const validate = (schema: ZodObject) => {
   return async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     try {
       const parsed = (await schema.parseAsync({
@@ -10,7 +10,7 @@ export const validate = (schema: ZodSchema) => {
         params: req.params,
       })) as any;
       
-      // Override request inputs with clean, parsed, and validated data
+      // Override request inuts with clean, parsed, and validated data
       if (parsed.body) {
         req.body = parsed.body;
       }
@@ -35,7 +35,7 @@ export const validate = (schema: ZodSchema) => {
         res.status(400).json({
           success: false,
           message: "Request validation failed",
-          errors: error.flatten().fieldErrors,
+          errors:flattenError(error).fieldErrors,
         });
         return;
       }

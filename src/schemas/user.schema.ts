@@ -28,7 +28,11 @@ export const LoginUserSchema = z.object({
     password: z.string({
       message: "Password is required",
     }),
-    token: z.string().optional(), // Push token
+    pushtoken: z.string().optional(), // Push token
+    os: z.string().optional(),
+    devicename: z.string().readonly(),
+    isactive: z.boolean().optional(),
+    appversion: z.string().optional(),
   })
 });
 

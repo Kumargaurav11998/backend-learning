@@ -1,8 +1,9 @@
 import mongoose from "mongoose";
 import { UserInterface } from "../interface/user";
 import { emailRegex, noSpaceRegex } from "../utils/regex";
+import { AccountInterface } from "../interface/account";
 
-const userSchema = new mongoose.Schema<UserInterface>({
+const AccountSchema = new mongoose.Schema<AccountInterface>({
   username: {
     type: String,
     required: true,
@@ -26,8 +27,28 @@ const userSchema = new mongoose.Schema<UserInterface>({
     type: String,
     required: false,
   },
+  os:{
+    type: String,
+    required: false,
+  },
+  devicename:{
+    type: String,
+    required: false,
+  },
+  isactive:{
+    type: Boolean,
+    required: false,
+  },
+  appversion:{
+    type: String,
+    required: false,
+  },
+  profilepic:{
+    type: String,
+    required: false,
+  }
 }, {
   timestamps: true // Adds createdAt and updatedAt fields
 });
 
-export default mongoose.model<UserInterface>("User", userSchema);
+export default mongoose.model<AccountInterface>("User", AccountSchema);

@@ -6,12 +6,6 @@ import { RegisterUserSchema, LoginUserSchema, GetUserSchema } from "../schemas/u
 
 const router = Router();
 
-// Register route with Zod input validation
-router.post("/register", validate(RegisterUserSchema), register);
-
-// Login route with Zod input validation
-router.post("/login", validate(LoginUserSchema), login);
-
 // Get User profile route, protected by JWT authentication and input validation
 router.post("/getuser", protectRoute, validate(GetUserSchema), getUser);
 
