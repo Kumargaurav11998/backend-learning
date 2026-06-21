@@ -33,7 +33,7 @@ Niche diye gaye order ke mutabik files ko open karke study karein:
 * 👉 **[02_express_js_basics.md](file:///c:/Gaurav/backend/backend-learning/02_express_js_basics.md)**
 
 ### 🛠️ 3. Express Middleware & Error Handling
-* Middleware pattern ("checkpost" metaphor), `next()` function, custom authentication & validation middlewares, aur advanced Global Error Handling patterns (`AppError` + `asyncHandler`).
+* Middleware pattern ("checkpost" metaphor), `next()` function, global vs route vs endpoint level middlewares, custom wrappers, and global error handling.
 * 👉 **[03_express_middleware.md](file:///c:/Gaurav/backend/backend-learning/03_express_middleware.md)**
 
 ### 💾 4. MongoDB & Mongoose Database
@@ -55,6 +55,10 @@ Niche diye gaye order ke mutabik files ko open karke study karein:
 ### 🏗️ 8. Project Architecture & MVC Flow
 * PulseSync directory layout details, Model-View-Controller pattern, and visual request cycle from router to middleware, controller, model database, and response.
 * 👉 **[07_project_architecture.md](file:///c:/Gaurav/backend/backend-learning/07_project_architecture.md)**
+
+### 🔄 9. Request-Response Lifecycle Workflow
+* Complete step-by-step master sequence diagram tracing an incoming request, parser operations, authorization check, inputs validation, controller execution, Mongoose database query, and custom global error handling response.
+* 👉 **[09_request_flow_lifecycle.md](file:///c:/Gaurav/backend/backend-learning/09_request_flow_lifecycle.md)**
 
 ---
 
