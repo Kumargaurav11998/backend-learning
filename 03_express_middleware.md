@@ -23,6 +23,34 @@ Express.js mein, middleware functions tab tak aage nahi badhte jab tak aap manua
 * Agar aap `next()` call karna bhool gaye, toh aapki request hanging state mein chali jayegi (loading loop chalta rahega) aur client timeout ho jayega.
 * **`next()` with arguments**: Agar aap `next(error)` ke andar koi value pass karte hain, toh Express samajh jata hai ki koi error aayi hai. Yeh beech ke saare normal routes aur middlewares ko skip karke direct **Global Error Handler** middleware (4 arguments wale) par jump kar jata hai.
 
+### 🛑 CRITICAL RULE: Response send karne ke baad `next()` call MAT karein!
+* Jab bhi kisi middleware ya controller mein aap **`res.send()`**, **`res.json()`**, ya **`res.end()`** call karte hain, toh request-response cycle **complete (close)** ho jata hai.
+* Ek baar response client ko chala gaya, toh uske baad **`next()` call nahi karna chahiye**.
+* **Kyun?** Agar aapne response bhejne ke baad bhi `next()` call kar diya, aur agle middleware/controller ne dobara response bhejne ki koshish ki, toh Express console mein yeh crash error throw karega:  
+  `Error: Cannot set headers after they are sent to the client`.
+
+#### ❌ Bad Code (Accidental double response):
+```typescript
+app.use((req, res, next) => {
+    res.status(401).json({ error: "Unauthorized" });
+    next(); // 🛑 Error! Response send hone ke baad next() call nahi karna hai.
+});
+```
+
+#### 🟢 Good Code (Terminate chain):
+```typescript
+app.use((req, res, next) => {
+    // Agar condition validation fail ho jaye, toh return res.send() karke yahi exit karein
+    if (validationFailed) {
+        res.status(401).json({ error: "Unauthorized" });
+        return; // next() call nahi karenge, chain yahi par crash-free stop ho jayegi.
+    }
+    next(); // Agar sab sahi hai, tabhi next() call karenge taaki agla checkpost run ho.
+});
+```
+
+---
+
 ### 🔄 Middleware Pass vs Fail Lifecycle:
 
 ```mermaid
