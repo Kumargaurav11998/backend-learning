@@ -1,5 +1,6 @@
 import { z } from "zod";
 import { emailRegex, noSpaceRegex } from "../utils/regex";
+import { DeviceSchema } from "./device.schema";
 
 export const RegisterUserSchema = z.object({
   body: z.object({
@@ -19,22 +20,18 @@ export const RegisterUserSchema = z.object({
   })
 });
 
-export const LoginUserSchema = z.object({
-  body: z.object({
-    email: z.string({
-      message: "Email is required",
-    })
-    .regex(emailRegex, "Invalid email format"),
-    password: z.string({
-      message: "Password is required",
-    }),
-    pushtoken: z.string().optional(), // Push token
-    os: z.string().optional(),
-    devicename: z.string().readonly(),
-    isactive: z.boolean().optional(),
-    appversion: z.string().optional(),
-  })
+const deviceFields = DeviceSchema.shape.body; 
+// 2. Define login credentials
+const loginCredentials = z.object({
+  email: z.string({message: "Email is required"}).regex(emailRegex, "Invalid email format"),
+  password: z.string({message: "Password is required"}).min(6, "Password must be at least 6 characters") ,
 });
+
+export const LoginUserSchema = z.object({
+  body: loginCredentials.merge(deviceFields),
+});
+
+
 
 export const GetUserSchema = z.object({
   body: z.object({

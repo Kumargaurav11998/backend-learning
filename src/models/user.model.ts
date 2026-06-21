@@ -1,7 +1,6 @@
 import mongoose from "mongoose";
-import { UserInterface } from "../interface/user";
 import { emailRegex, noSpaceRegex } from "../utils/regex";
-import { AccountInterface } from "../interface/account";
+import { AccountInterface } from "../interface/user";
 
 const AccountSchema = new mongoose.Schema<AccountInterface>({
   username: {
@@ -23,15 +22,7 @@ const AccountSchema = new mongoose.Schema<AccountInterface>({
     type: String,
     required: true,
   },
-  pushtoken: {
-    type: String,
-    required: false,
-  },
-  os:{
-    type: String,
-    required: false,
-  },
-  devicename:{
+  profilepic:{
     type: String,
     required: false,
   },
@@ -39,14 +30,6 @@ const AccountSchema = new mongoose.Schema<AccountInterface>({
     type: Boolean,
     required: false,
   },
-  appversion:{
-    type: String,
-    required: false,
-  },
-  profilepic:{
-    type: String,
-    required: false,
-  }
 }, {
   timestamps: true // Adds createdAt and updatedAt fields
 });

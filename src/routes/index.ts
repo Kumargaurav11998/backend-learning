@@ -3,6 +3,7 @@ import userRouter from "./user.routes";
 import productRouter from "./product.routes";
 import healthRouter from "./health.routes";
 import authrouter from "./auth.routes";  
+import getdevicerouter from "./device.routes"
 
 const router = Router();
 
@@ -12,6 +13,7 @@ router.use("/", userRouter);
 
 // Product endpoints: /products/:id
 router.use("/products", productRouter);
+router.use("/getdevice",getdevicerouter)
 
 // Health check endpoint: /health
 router.use("/health", healthRouter);

@@ -3,9 +3,18 @@ import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import User from "../models/user.model";
 import { AuthenticatedRequest } from "../middleware/auth.middleware";
-import { AccountInterface } from "../interface/account";
 import { AppError } from "../utils/appError";
 import { asyncHandler } from "../utils/asyncHandler";
+import Device from "../models/device.model";
+
+interface LoginRequestBody {
+  email: string;
+  password: string;
+  pushtoken?: string;
+  os?: string;
+  devicename?: string;
+  appversion?: string;
+}
 
 export const getUser = asyncHandler(async (req: AuthenticatedRequest, res: Response): Promise<void> => {
   const { email } = req.body;
@@ -53,7 +62,7 @@ export const register = asyncHandler(async (req: AuthenticatedRequest, res: Resp
 });
 
 export const login = asyncHandler(async (req: AuthenticatedRequest, res: Response): Promise<void> => {
-  const { email, password, pushtoken, os ,devicename,isactive,appversion } = req.body as AccountInterface;
+  const { email, password, pushtoken, os , devicename,appversion  } = req.body  as LoginRequestBody
 
   const user = await User.findOne({ email });
   if (!user) {
@@ -67,8 +76,16 @@ export const login = asyncHandler(async (req: AuthenticatedRequest, res: Respons
 
   // Save push token if provided
   if (pushtoken) {
-    user.pushtoken = pushtoken;
-    await user.save();
+     await Device.findOneAndUpdate(
+      { pushtoken },
+      {
+        userId: user._id,
+        os: os || "unknown",
+        devicename: devicename || "unknown",
+        appversion: appversion || "1.0.0",
+      },
+      { upsert: true, new: true }
+    );
   }
 
   const secret = process.env.JWT_SECRET;
@@ -87,9 +104,12 @@ export const login = asyncHandler(async (req: AuthenticatedRequest, res: Respons
     success: true,
     message: "Login successful",
     data: {
+      userid: user._id,
       username: user.username,
       email: user.email,
       token: tokenjwt,
+      profilepic: user.profilepic,
+      isactive: user.isactive,
     },
   });
 });
