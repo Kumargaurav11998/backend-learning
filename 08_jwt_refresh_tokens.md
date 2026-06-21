@@ -1,4 +1,4 @@
-# Advanced JWT: Access Token & Refresh Token Tutorial (Hinglish)
+# 🔄 Advanced JWT: Access Token & Refresh Token Tutorial (Hinglish)
 
 Hello Gaurav! 👋 Mobile app developers ke liye **JWT Refresh Tokens** seekhna aur implement karna sabse zyada important topic hai. 
 
@@ -9,7 +9,7 @@ Is tutorial mein hum detail mein cover karenge ki **Access & Refresh Tokens** ky
 ## 🔑 Refresh Token vs Media Upload: Pehle Kya Seekhein?
 
 Aapko **Advanced JWT (Access & Refresh Tokens)** pehle seekhna chahiye. Kyun?
-1. **Security Backbone**: Har mobile app ko safe and seamless login experience chahiye hota hai. Media upload secondary feature hai, authorization primary feature hai.
+1. **Security Backbone**: Har mobile app ko safe and seamless login experience chahiye hota. Media upload secondary feature hai, authorization primary feature hai.
 2. **Session Persistence**: Mobile apps mein user baar-baar log out nahi hona chahiye. Refresh token hi aisi technique hai jisse user logged-in rehta hai bina security compromise kiye.
 
 ---

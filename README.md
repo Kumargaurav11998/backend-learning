@@ -37,20 +37,24 @@ Niche diye gaye order ke mutabik files ko open karke study karein:
 * 👉 **[03_express_middleware.md](file:///c:/Gaurav/backend/backend-learning/03_express_middleware.md)**
 
 ### 💾 4. MongoDB & Mongoose Database
-* SQL vs NoSQL databases, Mongoose ODM schemas, schemas vs models definition, and common Mongoose CRUD queries (find, findOne, upsert, update, delete).
+* SQL vs NoSQL databases, Mongoose ODM schemas, schemas vs models definition, common Mongoose CRUD queries (`find`, `findOne`, `create`, `findOneAndUpdate`, `updateOne`, `deleteOne`, `deleteMany`), and Mongoose relationships with `.populate()`.
 * 👉 **[04_mongodb_mongoose.md](file:///c:/Gaurav/backend/backend-learning/04_mongodb_mongoose.md)**
 
-### 🔑 5. User Authentication & Password Security
+### 🛡️ 5. Request Validation with Zod
+* Zod validation library, common validators (min, max, regex, email), schema merging, and request validation middleware integration in Express routes.
+* 👉 **[05_zod_validation.md](file:///c:/Gaurav/backend/backend-learning/05_zod_validation.md)**
+
+### 🔑 6. User Authentication & Password Security
 * Hashing vs Encryption, Bcrypt password matching, JWT structure (Header, Payload, Signature) and secure private keys configuration.
-* 👉 **[05_user_authentication.md](file:///c:/Gaurav/backend/backend-learning/05_user_authentication.md)**
+* 👉 **[06_user_authentication.md](file:///c:/Gaurav/backend/backend-learning/06_user_authentication.md)**
 
-### 🔄 6. Advanced JWT Session Management
+### 🔄 7. Advanced JWT Session Management (Access & Refresh Tokens)
 * Access Tokens (short-lived) vs Refresh Tokens (long-lived) sessions workflow, token storage guidelines, database updates, and React Native client Axios Interceptors setup.
-* 👉 **[jwt_refresh_tutorial.md](file:///c:/Gaurav/backend/backend-learning/jwt_refresh_tutorial.md)**
+* 👉 **[08_jwt_refresh_tokens.md](file:///c:/Gaurav/backend/backend-learning/08_jwt_refresh_tokens.md)**
 
-### 🏗️ 7. Project Architecture & MVC Flow
+### 🏗️ 8. Project Architecture & MVC Flow
 * PulseSync directory layout details, Model-View-Controller pattern, and visual request cycle from router to middleware, controller, model database, and response.
-* 👉 **[06_project_architecture.md](file:///c:/Gaurav/backend/backend-learning/06_project_architecture.md)**
+* 👉 **[07_project_architecture.md](file:///c:/Gaurav/backend/backend-learning/07_project_architecture.md)**
 
 ---
 

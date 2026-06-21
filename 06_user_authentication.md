@@ -109,4 +109,4 @@ next();
 ## 🔄 Access Token & Refresh Token Flow
 Single token long time ke liye store karna dangerous ho sakta hai. Is security loophole ko cover karne ke liye hum do tokens ka concept use karte hain (Access Token for short time & Refresh Token for session renewal).
 
-👉 Is flow ki detailed implementation and react native guide padhne ke liye direct is file ko open kijiye: **[jwt_refresh_tutorial.md](file:///c:/Gaurav/backend/backend-learning/jwt_refresh_tutorial.md)**
+👉 Is flow ki detailed implementation and react native guide padhne ke liye direct is file ko open kijiye: **[08_jwt_refresh_tokens.md](file:///c:/Gaurav/backend/backend-learning/08_jwt_refresh_tokens.md)**
