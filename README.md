@@ -1,0 +1,61 @@
+# 📘 PulseSync: Backend Learning Reference Book (Hinglish)
+
+Hello Gaurav! 👋 
+Yeh aapka **Personal Backend Reference Book** branch hai. Aapke full-stack developer banne ke safar ko aasan banane ke liye, is branch mein humne poora basic-to-advanced backend content, structures aur architecture ko simple **Hinglish** language mein explain kiya hai.
+
+---
+
+## 🔀 Branches Ke Beech Switch Kaise Karein? (How to Navigate)
+
+Kyunki is branch (`tutorial`) ko humne ek **clean study reference** banaya hai, isme humne application files (code base) ko clean kar diya hai taaki aap sirf topics read karne pe focus kar sakein.
+
+* **Padhne aur Seekhne ke liye (`tutorial` branch):**
+  ```bash
+  git checkout tutorial
+  ```
+* **Apna actual Code/API likhne aur run karne ke liye (`main` branch):**
+  ```bash
+  git checkout main
+  ```
+
+---
+
+## 📚 Table of Contents (Syllabus)
+
+Niche diye gaye order ke mutabik files ko open karke study karein:
+
+### 🟢 1. Node.js Core Architecture
+* Node.js runtime kya hai, V8 engine kaise kaam karta hai, single-threaded aur asynchronous behavior kya hota hai, aur Event Loop ka logic flow diagram ke sath.
+* 👉 **[01_node_js_basics.md](file:///c:/Gaurav/backend/backend-learning/01_node_js_basics.md)**
+
+### 🔵 2. Express.js Routing & HTTP
+* Express.js router setup, Client-Server HTTP protocols, HTTP verbs (GET, POST, etc.), and request details (`req.body`, `req.params`, `req.query`).
+* 👉 **[02_express_js_basics.md](file:///c:/Gaurav/backend/backend-learning/02_express_js_basics.md)**
+
+### 🛠️ 3. Express Middleware & Error Handling
+* Middleware pattern ("checkpost" metaphor), `next()` function, custom authentication & validation middlewares, aur advanced Global Error Handling patterns (`AppError` + `asyncHandler`).
+* 👉 **[03_express_middleware.md](file:///c:/Gaurav/backend/backend-learning/03_express_middleware.md)**
+
+### 💾 4. MongoDB & Mongoose Database
+* SQL vs NoSQL databases, Mongoose ODM schemas, schemas vs models definition, and common Mongoose CRUD queries (find, findOne, upsert, update, delete).
+* 👉 **[04_mongodb_mongoose.md](file:///c:/Gaurav/backend/backend-learning/04_mongodb_mongoose.md)**
+
+### 🔑 5. User Authentication & Password Security
+* Hashing vs Encryption, Bcrypt password matching, JWT structure (Header, Payload, Signature) and secure private keys configuration.
+* 👉 **[05_user_authentication.md](file:///c:/Gaurav/backend/backend-learning/05_user_authentication.md)**
+
+### 🔄 6. Advanced JWT Session Management
+* Access Tokens (short-lived) vs Refresh Tokens (long-lived) sessions workflow, token storage guidelines, database updates, and React Native client Axios Interceptors setup.
+* 👉 **[jwt_refresh_tutorial.md](file:///c:/Gaurav/backend/backend-learning/jwt_refresh_tutorial.md)**
+
+### 🏗️ 7. Project Architecture & MVC Flow
+* PulseSync directory layout details, Model-View-Controller pattern, and visual request cycle from router to middleware, controller, model database, and response.
+* 👉 **[06_project_architecture.md](file:///c:/Gaurav/backend/backend-learning/06_project_architecture.md)**
+
+---
+
+## 💡 Quick Tips
+* Har topic ke end mein **Best Practices** aur **Code Snippets** diye gaye hain.
+* In files ko print karne ke liye editor window ke right-click dropdown option se print/save as PDF run kar sakte hain.
+
+Happy Learning Gaurav! Agar kisi bhi topic mein doubt ho, toh bejhijhak puchiye! 🚀
