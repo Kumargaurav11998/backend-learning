@@ -88,6 +88,15 @@ Jab mobile app server ko request bhejta hai, toh client ki bheji hui details **`
   });
   ```
 
+### 📊 Request Data extraction comparison (Table):
+
+| Request Property | Passed Where? | Format | Sample Request URL / Data | Express Code |
+| :--- | :--- | :--- | :--- | :--- |
+| **`req.body`** | Hidden in Request Body | JSON Object | `{ "email": "g@t.com", "password": "123" }` | `req.body.email` |
+| **`req.params`** | Inside URL Route Path | URL Segments | `/products/45` (mapped to route `/products/:id`) | `req.params.id` |
+| **`req.query`** | At URL end after `?` | Key-value string | `/getdevice?userid=60c72b2f` | `req.query.userid` |
+| **`req.headers`** | In HTTP Request Headers | Headers Object | `Authorization: Bearer eyJhbGci...` | `req.headers.authorization` |
+
 ---
 
 ## 📤 Response Object (`res` in Express)

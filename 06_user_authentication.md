@@ -13,6 +13,14 @@ Kayi log samajhte hain ki passwords ko encrypt karna chahiye, par best practice 
 
 🚨 **Hamein passwords ko hamesha Hash karna chahiye!** Agar database kabhi hack bhi ho jaye, toh hacker hashes se real password pata nahi kar sakta.
 
+### 📊 Cryptography Operations Comparison (Table):
+
+| Operation Type | Reversibility (Wapas nikal sakte hain?) | Key Required? | Common Use Case |
+| :--- | :--- | :--- | :--- |
+| **Hashing** | ❌ **No** (One-way only) | No (Uses internal salt) | Password storage, checksum integrity validation. |
+| **Encryption** |  **Yes** (Two-way) | Yes (Symmetric/Asymmetric Keys) | Data transmission (SSL/TLS, private database fields). |
+| **Encoding** |  **Yes** (Just format translation) | No key required | URL strings, payload transfers (Base64). |
+
 ---
 
 ## 🛠️ Bcrypt - Password Hashing Library
@@ -82,6 +90,14 @@ graph TD
     Dot2 --> JWTToken
     Signature --> JWTToken
 ```
+
+### 📊 JWT Parts Breakdown (Table):
+
+| Part Name | Representation | Stored Content | Encrypted? (Can client read it?) | Purpose |
+| :--- | :--- | :--- | :--- | :--- |
+| **Header** | `xxxxx` (Base64) | Alg & Token Type (e.g. HS256) |  **Yes** (Decodable but not editable) | Identifies algorithm to verify signature. |
+| **Payload** | `yyyyy` (Base64) | User Details: `userId`, `email`, expiry time (`exp`). |  **Yes** (Decodable but not editable) | Identifies who the user is without querying DB. |
+| **Signature** | `zzzzz` (Hash sum) | Salted Hash of Header + Payload + Secret Key. | ❌ **No** (Undecodable, signature verification only) | Prevents tampering. If client changes payload, signature becomes invalid! |
 
 ---
 

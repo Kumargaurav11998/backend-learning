@@ -23,6 +23,32 @@ Express.js mein, middleware functions tab tak aage nahi badhte jab tak aap manua
 * Agar aap `next()` call karna bhool gaye, toh aapki request hanging state mein chali jayegi (loading loop chalta rahega) aur client timeout ho jayega.
 * **`next()` with arguments**: Agar aap `next(error)` ke andar koi value pass karte hain, toh Express samajh jata hai ki koi error aayi hai. Yeh beech ke saare normal routes aur middlewares ko skip karke direct **Global Error Handler** middleware (4 arguments wale) par jump kar jata hai.
 
+### 🔄 Middleware Pass vs Fail Lifecycle:
+
+```mermaid
+sequenceDiagram
+    participant Client as Client Request
+    participant MW as Middleware (e.g. protectRoute)
+    participant Controller as Controller Logic
+    participant ErrorMW as Global Error Handler
+
+    Client->>MW: Sends Request
+    Note over MW: Validate Token/Data
+    
+    alt Verification Successful
+        Note over MW: Call next()
+        MW->>Controller: Pass control to Controller
+        Controller-->>Client: Send 200 OK Response
+    else Verification Failed (e.g. Invalid Token)
+        Note over MW: Do NOT call next()
+        MW-->>Client: Send 401 Unauthorized Response (Stop Chain)
+    else Runtime Exception (e.g. DB crash)
+        Note over MW: Call next(err)
+        MW->>ErrorMW: Pass Error to Error handler
+        ErrorMW-->>Client: Send 500 Error Response
+    end
+```
+
 ---
 
 ## 📐 app.ts Configuration & Layout Rules

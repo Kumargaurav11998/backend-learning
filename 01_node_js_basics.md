@@ -54,6 +54,15 @@ sequenceDiagram
 3. **Callback Queue / Task Queue**: Jab background thread task complete kar leta hai, toh uska execution code (callback function) is queue mein aakar khada ho jata hai.
 4. **Event Loop**: Yeh ek continuous running loop hai. Iska kaam hai check karna ki **Call Stack** empty hai ya nahi. Agar Call Stack empty hai, toh yeh **Callback Queue** se pehle task ko uthakar Call Stack mein bhej deta hai execution ke liye.
 
+### 📊 Runtime Components Comparison (Table):
+
+| Component | Responsibility (Kaam) | Thread Type | Execution Type |
+| :--- | :--- | :--- | :--- |
+| **Call Stack** | Runs standard synchronous JavaScript code line-by-line. | Single Main Thread | LIFO (Last In, First Out) |
+| **Node APIs (Libuv)** | Handles background tasks (like DB queries, file reads, networking). | C++ Worker Threads | Multithreaded |
+| **Callback Queue** | Stores completed background tasks' callbacks waiting to run. | Queue Storage | FIFO (First In, First Out) |
+| **Event Loop** | Constantly monitors Call Stack and routes Callbacks from Queue. | Single Main Thread | Infinite loop |
+
 ---
 
 ## 📝 Example: Blocking vs Non-Blocking Code
